@@ -7048,3 +7048,966 @@ Processing by DeviseTokenAuth::SessionsController#destroy as HTML
 Completed 200 OK in 116ms (Views: 0.3ms | ActiveRecord: 14.0ms | Allocations: 4358)
 
 
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:37:02 +0900
+  [1m[35m (49.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>0, "event"=>{"user_id"=>0}}
+  [1m[36mFollow Load (4.9ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 0 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (1.2ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 0 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (7.5ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 0[0m
+  ↳ app/controllers/events_controller.rb:32:in `index'
+Completed 200 OK in 276ms (Views: 8.6ms | ActiveRecord: 25.7ms | Allocations: 7051)
+
+
+Started POST "/api/v1/auth/sign_in" for 172.18.0.1 at 2023-05-07 09:37:20 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"test14@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test14@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (12.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'test14@mail.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+Completed 401 Unauthorized in 3190ms (Views: 1.2ms | ActiveRecord: 63.6ms | Allocations: 21036)
+
+
+Started POST "/api/v1/auth/sign_in" for 172.18.0.1 at 2023-05-07 09:37:34 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"test16@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test16@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (10.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'test16@mail.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 47ms (Views: 1.0ms | ActiveRecord: 10.9ms | Allocations: 1465)
+
+
+Started POST "/api/v1/auth/sign_in" for 172.18.0.1 at 2023-05-07 09:37:43 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"test15@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test15@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (21.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'test15@mail.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+Completed 401 Unauthorized in 811ms (Views: 1.1ms | ActiveRecord: 21.7ms | Allocations: 1541)
+
+
+Started POST "/api/v1/auth/sign_in" for 172.18.0.1 at 2023-05-07 09:37:58 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"test11@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test11@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'test11@mail.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (4.3ms)[0m  [1m[37mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1 FOR UPDATE[0m
+  [1m[36mUser Update (7.1ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"7YEKID1kx1oNaOSMp02crA\":{\"token\":\"$2a$10$iC9RfkXf3XUrNfFVniMmeeofCl.6XYYbZlK6AuEijyQikps7INqau\",\"expiry\":1684629478}}', `users`.`updated_at` = '2023-05-07 00:37:58.764853' WHERE `users`.`id` = 4[0m
+  [1m[36mTRANSACTION (13.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Completed 200 OK in 606ms (Views: 0.5ms | ActiveRecord: 30.9ms | Allocations: 8485)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:37:59 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (2.9ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (2.4ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 138ms (Views: 27.4ms | ActiveRecord: 42.3ms | Allocations: 8596)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:41:27 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (17.4ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (1.6ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (1.6ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 167ms (Views: 33.9ms | ActiveRecord: 21.8ms | Allocations: 3067)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:43:34 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (2.8ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (2.4ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (7.4ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (2.0ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 152ms (Views: 56.4ms | ActiveRecord: 14.6ms | Allocations: 3067)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:44:12 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (19.2ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (17.2ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (15.6ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (2.1ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 378ms (Views: 135.8ms | ActiveRecord: 54.1ms | Allocations: 3067)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:44:48 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (25.2ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (13.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (43.7ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (4.6ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 601ms (Views: 350.0ms | ActiveRecord: 86.7ms | Allocations: 3070)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:45:21 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (5.9ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (0.9ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 328ms (Views: 168.7ms | ActiveRecord: 9.0ms | Allocations: 3067)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:46:54 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (12.0ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (1.4ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (7.1ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (19.6ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 443ms (Views: 280.3ms | ActiveRecord: 40.0ms | Allocations: 3071)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:49:07 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (2.9ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (3.0ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (2.0ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 82ms (Views: 46.7ms | ActiveRecord: 8.8ms | Allocations: 3068)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:49:47 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (3.3ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (23.3ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 213ms (Views: 93.8ms | ActiveRecord: 28.1ms | Allocations: 3067)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:49:50 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>0, "event"=>{"user_id"=>0}}
+  [1m[36mFollow Load (5.3ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 0 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (4.7ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 0 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (13.9ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 0[0m
+  ↳ app/controllers/events_controller.rb:32:in `index'
+Completed 200 OK in 129ms (Views: 19.1ms | ActiveRecord: 23.9ms | Allocations: 2310)
+
+
+Started GET "/api/v1/auth/sessions" for 172.18.0.1 at 2023-05-07 09:49:51 +0900
+Processing by Api::V1::Auth::SessionsController#index as HTML
+  [1m[36mUser Load (178.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`uid` = 'test11@mail.com' LIMIT 1[0m
+  ↳ app/controllers/api/v1/auth/sessions_controller.rb:3:in `index'
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Completed 200 OK in 527ms (Views: 9.7ms | ActiveRecord: 182.0ms | Allocations: 2465)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:49:53 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (1.6ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (3.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (5.9ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 119ms (Views: 35.8ms | ActiveRecord: 11.5ms | Allocations: 3082)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:50:08 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>0, "event"=>{"user_id"=>0}}
+  [1m[36mFollow Load (1.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 0 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+Started GET "/api/v1/auth/sessions" for 172.18.0.1 at 2023-05-07 09:50:08 +0900
+  [1m[36mFollow Load (3.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 0 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+Processing by Api::V1::Auth::SessionsController#index as HTML
+  [1m[36mEvent Load (3.2ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 0[0m
+  ↳ app/controllers/events_controller.rb:32:in `index'
+Completed 200 OK in 100ms (Views: 26.3ms | ActiveRecord: 7.5ms | Allocations: 2696)
+
+
+  [1m[36mUser Load (26.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`uid` = 'test11@mail.com' LIMIT 1[0m
+  ↳ app/controllers/api/v1/auth/sessions_controller.rb:3:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Completed 200 OK in 272ms (Views: 0.7ms | ActiveRecord: 49.8ms | Allocations: 2963)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:50:08 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (2.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (1.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (1.9ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 56ms (Views: 19.4ms | ActiveRecord: 6.4ms | Allocations: 3067)
+
+
+Started DELETE "/api/v1/auth/sign_out" for 172.18.0.1 at 2023-05-07 09:50:14 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`uid` = 'test11@mail.com' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (14.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = NULL, `users`.`updated_at` = '2023-05-07 00:50:15.011267' WHERE `users`.`id` = 4[0m
+  [1m[36mTRANSACTION (25.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 129ms (Views: 0.2ms | ActiveRecord: 41.1ms | Allocations: 4870)
+
+
+Started POST "/api/v1/auth/sign_in" for 172.18.0.1 at 2023-05-07 09:50:24 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"test11@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"test11@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (15.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'test11@mail.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[37mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1 FOR UPDATE[0m
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"nlY2Wi5WTypj5ftOoRlGgA\":{\"token\":\"$2a$10$hjId02V6Srvb/IFyf2Yk2O53DDQXOla8uXDbkQ7zWH2fZlQeK61Xm\",\"expiry\":1684630224}}', `users`.`updated_at` = '2023-05-07 00:50:24.604643' WHERE `users`.`id` = 4[0m
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Completed 200 OK in 544ms (Views: 0.4ms | ActiveRecord: 28.4ms | Allocations: 7433)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:50:24 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (0.7ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (0.8ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 41ms (Views: 17.7ms | ActiveRecord: 3.0ms | Allocations: 3085)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:51:32 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (1.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (1.3ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 224ms (Views: 105.6ms | ActiveRecord: 4.6ms | Allocations: 3070)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 09:56:33 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (163.4ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (19.8ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (8.8ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (5.0ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 534ms (Views: 258.1ms | ActiveRecord: 197.0ms | Allocations: 3068)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 10:28:50 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (18.7ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (134.6ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (9.7ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (2.7ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 465ms (Views: 143.3ms | ActiveRecord: 182.1ms | Allocations: 10052)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 10:29:42 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (0.8ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:25:in `index'
+  [1m[36mFollow Load (2.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:28:in `index'
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (11.0ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+Completed 200 OK in 270ms (Views: 160.5ms | ActiveRecord: 14.7ms | Allocations: 3075)
+
+
+Started POST "/events/create" for 172.18.0.1 at 2023-05-07 10:32:28 +0900
+Processing by EventsController#create as HTML
+  Parameters: {"body"=>"body4-13", "date"=>"", "name"=>"matsuda", "title"=>"event4-13-edit", "user_id"=>4, "event"=>{"user_id"=>4, "date"=>"", "title"=>"event4-13-edit", "body"=>"body4-13", "name"=>"matsuda"}}
+[31mUnpermitted parameter: :event[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mEvent Create (41.8ms)[0m  [1m[32mINSERT INTO `events` (`user_id`, `date`, `title`, `body`, `name`, `created_at`, `updated_at`) VALUES (4, '', 'event4-13-edit', 'body4-13', 'matsuda', '2023-05-07 01:32:30.049310', '2023-05-07 01:32:30.049310')[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (12.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+Completed 200 OK in 541ms (Views: 0.4ms | ActiveRecord: 506.0ms | Allocations: 18190)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 10:32:30 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (1.0ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:32:in `index'
+  [1m[36mFollow Load (4.6ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:35:in `index'
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:41:in `index'
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:41:in `index'
+Completed 200 OK in 78ms (Views: 17.2ms | ActiveRecord: 17.4ms | Allocations: 6805)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 10:34:15 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (1.9ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (12.4ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.6ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+Completed 200 OK in 271ms (Views: 95.5ms | ActiveRecord: 103.3ms | Allocations: 10992)
+
+
+Started POST "/events/create" for 172.18.0.1 at 2023-05-07 10:34:24 +0900
+Processing by EventsController#create as HTML
+  Parameters: {"body"=>"body4-13", "date"=>"", "name"=>"matsuda", "title"=>"event4-13-edit", "user_id"=>4, "event"=>{"user_id"=>4, "date"=>"", "title"=>"event4-13-edit", "body"=>"body4-13", "name"=>"matsuda"}}
+[31mUnpermitted parameter: :event[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mEvent Create (2.9ms)[0m  [1m[32mINSERT INTO `events` (`user_id`, `date`, `title`, `body`, `name`, `created_at`, `updated_at`) VALUES (4, '', 'event4-13-edit', 'body4-13', 'matsuda', '2023-05-07 01:34:25.039769', '2023-05-07 01:34:25.039769')[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (12.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+Completed 200 OK in 70ms (Views: 0.6ms | ActiveRecord: 18.4ms | Allocations: 10784)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 10:34:25 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (1.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (1.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+Completed 200 OK in 37ms (Views: 16.3ms | ActiveRecord: 3.8ms | Allocations: 3302)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 10:35:53 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (21.6ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (5.5ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+Completed 200 OK in 271ms (Views: 203.1ms | ActiveRecord: 29.5ms | Allocations: 3304)
+
+
+Started POST "/events/edit" for 172.18.0.1 at 2023-05-07 10:36:01 +0900
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>5, "body"=>"body4-13", "date"=>"", "name"=>"matsuda", "title"=>"event4-13-edit", "user_id"=>4, "event"=>{"id"=>5, "user_id"=>4, "date"=>"", "title"=>"event4-13-edit", "body"=>"body4-13", "name"=>"matsuda"}}
+  [1m[36mEvent Load (0.9ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`id` = 5 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:12:in `edit'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:13:in `edit'
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:13:in `edit'
+  [1m[36mEvent Update (3.6ms)[0m  [1m[33mUPDATE `events` SET `events`.`title` = 'event4-13-edit', `events`.`updated_at` = '2023-05-07 01:36:01.773576' WHERE `events`.`id` = 5[0m
+  ↳ app/controllers/events_controller.rb:13:in `edit'
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:13:in `edit'
+Completed 200 OK in 69ms (Views: 1.1ms | ActiveRecord: 19.2ms | Allocations: 3654)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-05-07 10:36:01 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>4, "event"=>{"user_id"=>4}}
+  [1m[36mFollow Load (1.2ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 4 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (1.4ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 4 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 4[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 6[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+Completed 200 OK in 44ms (Views: 19.5ms | ActiveRecord: 4.8ms | Allocations: 3302)
+
+
+Started GET "/rails/info/routes" for 172.18.0.1 at 2023-06-02 11:58:12 +0900
+  [1m[35m (27.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /usr/local/bundle/gems/railties-6.1.7.3/lib/rails/templates/layouts/application.html.erb
+  Rendering /usr/local/bundle/gems/railties-6.1.7.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /usr/local/bundle/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb [48 times] (Duration: 39.4ms | Allocations: 7860)
+  Rendered /usr/local/bundle/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 105.7ms | Allocations: 1330)
+  Rendered /usr/local/bundle/gems/railties-6.1.7.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 246.1ms | Allocations: 14734)
+  Rendered layout /usr/local/bundle/gems/railties-6.1.7.3/lib/rails/templates/layouts/application.html.erb (Duration: 254.1ms | Allocations: 15004)
+Completed 200 OK in 554ms (Views: 360.4ms | ActiveRecord: 0.0ms | Allocations: 19417)
+
+
+Started GET "/favicon.ico" for 172.18.0.1 at 2023-06-02 11:58:14 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 11:58:17 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>0, "event"=>{"user_id"=>0}}
+  [1m[36mFollow Load (4.9ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 0 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (0.9ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 0 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (3.8ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 0[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+Completed 200 OK in 112ms (Views: 7.2ms | ActiveRecord: 19.8ms | Allocations: 5536)
+
+
+Started POST "/api/v1/auth" for 172.18.0.1 at 2023-06-02 11:58:57 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as HTML
+  Parameters: {"name"=>"matsudarisa", "email"=>"matsudarisa@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"name"=>"matsudarisa", "email"=>"matsudarisa@mail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (9.5ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'matsudarisa@mail.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (16.7ms)[0m  [1m[32mINSERT INTO `users` (`uid`, `encrypted_password`, `name`, `email`, `created_at`, `updated_at`) VALUES ('matsudarisa@mail.com', '$2a$12$9OMW9t5X4NwS9Xw29p58X.r9g5Ff7s.DugV9M7rgnKAE3Prc7ufa6', 'matsudarisa', 'matsudarisa@mail.com', '2023-06-02 02:58:58.796439', '2023-06-02 02:58:58.796439')[0m
+  [1m[36mTRANSACTION (13.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (7.6ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"Ao8SxgyaGByzTvfLWZSwEQ\":{\"token\":\"$2a$10$.dLbZreDjlBjGR8Kn64krOuVkhmIj0XserY0zMJVSZ6ky4SgFIpbi\",\"expiry\":1686884338}}', `users`.`updated_at` = '2023-06-02 02:58:58.918679' WHERE `users`.`id` = 10[0m
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1[0m
+Completed 200 OK in 1581ms (Views: 0.7ms | ActiveRecord: 66.2ms | Allocations: 29916)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 11:58:59 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>10, "event"=>{"user_id"=>10}}
+  [1m[36mFollow Load (0.7ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 10 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (1.6ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 10 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 10[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+Completed 200 OK in 105ms (Views: 29.0ms | ActiveRecord: 3.5ms | Allocations: 1969)
+
+
+Started DELETE "/api/v1/auth/sign_out" for 172.18.0.1 at 2023-06-02 11:59:02 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`uid` = 'matsudarisa@mail.com' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (3.4ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = NULL, `users`.`updated_at` = '2023-06-02 02:59:03.061983' WHERE `users`.`id` = 10[0m
+  [1m[36mTRANSACTION (14.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 195ms (Views: 0.7ms | ActiveRecord: 19.4ms | Allocations: 5470)
+
+
+Started POST "/api/v1/auth/sign_in" for 172.18.0.1 at 2023-06-02 11:59:13 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"matsudarisa@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"matsudarisa@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'matsudarisa@mail.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (2.6ms)[0m  [1m[37mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1 FOR UPDATE[0m
+  [1m[36mUser Update (2.1ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"a6JadZPZsFQBagGkt_57tQ\":{\"token\":\"$2a$10$0HyrvS/Dj5LH4JiypJYjXueD61sHsCjRGSi8dOaWY1P1HnZBvx4Fy\",\"expiry\":1686884354}}', `users`.`updated_at` = '2023-06-02 02:59:14.070195' WHERE `users`.`id` = 10[0m
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1[0m
+Completed 200 OK in 563ms (Views: 0.8ms | ActiveRecord: 20.7ms | Allocations: 8084)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 11:59:14 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>10, "event"=>{"user_id"=>10}}
+  [1m[36mFollow Load (2.0ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 10 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (1.3ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 10 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (3.4ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 10[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+Completed 200 OK in 71ms (Views: 19.8ms | ActiveRecord: 6.6ms | Allocations: 1954)
+
+
+Started POST "/events/create" for 172.18.0.1 at 2023-06-02 11:59:21 +0900
+Processing by EventsController#create as HTML
+  Parameters: {"body"=>"body1", "date"=>"2023-06-01", "name"=>"matsudarisa", "title"=>"event1", "user_id"=>10, "event"=>{"user_id"=>10, "date"=>"2023-06-01", "title"=>"event1", "body"=>"body1", "name"=>"matsudarisa"}}
+[31mUnpermitted parameter: :event[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mEvent Create (1.7ms)[0m  [1m[32mINSERT INTO `events` (`user_id`, `date`, `title`, `body`, `name`, `created_at`, `updated_at`) VALUES (10, '2023-06-01', 'event1', 'body1', 'matsudarisa', '2023-06-02 02:59:22.045066', '2023-06-02 02:59:22.045066')[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (12.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+Completed 200 OK in 273ms (Views: 1.4ms | ActiveRecord: 19.4ms | Allocations: 9696)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 11:59:22 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>10, "event"=>{"user_id"=>10}}
+  [1m[36mFollow Load (0.8ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 10 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (0.9ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 10 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 10[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+Completed 200 OK in 36ms (Views: 17.5ms | ActiveRecord: 2.9ms | Allocations: 2111)
+
+
+Started POST "/events/create" for 172.18.0.1 at 2023-06-02 11:59:36 +0900
+Processing by EventsController#create as HTML
+  Parameters: {"body"=>"body2", "date"=>"2023-06-01", "name"=>"matsudarisa", "title"=>"event2", "user_id"=>10, "event"=>{"user_id"=>10, "date"=>"2023-06-01", "title"=>"event2", "body"=>"body2", "name"=>"matsudarisa"}}
+[31mUnpermitted parameter: :event[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mEvent Create (1.0ms)[0m  [1m[32mINSERT INTO `events` (`user_id`, `date`, `title`, `body`, `name`, `created_at`, `updated_at`) VALUES (10, '2023-06-01', 'event2', 'body2', 'matsudarisa', '2023-06-02 02:59:36.535598', '2023-06-02 02:59:36.535598')[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (13.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+Completed 200 OK in 63ms (Views: 0.5ms | ActiveRecord: 16.7ms | Allocations: 3060)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 11:59:36 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>10, "event"=>{"user_id"=>10}}
+  [1m[36mFollow Load (1.6ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 10 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (2.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 10 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.5ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 10[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+Completed 200 OK in 34ms (Views: 6.8ms | ActiveRecord: 5.2ms | Allocations: 2170)
+
+
+Started DELETE "/api/v1/auth/sign_out" for 172.18.0.1 at 2023-06-02 11:59:45 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`uid` = 'matsudarisa@mail.com' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = NULL, `users`.`updated_at` = '2023-06-02 02:59:45.773061' WHERE `users`.`id` = 10[0m
+  [1m[36mTRANSACTION (10.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 114ms (Views: 0.5ms | ActiveRecord: 12.9ms | Allocations: 4235)
+
+
+Started POST "/api/v1/auth" for 172.18.0.1 at 2023-06-02 12:00:26 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as HTML
+  Parameters: {"name"=>"masuda", "email"=>"masuda@masuda.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "registration"=>{"name"=>"masuda", "email"=>"masuda@masuda.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+[31mUnpermitted parameter: :registration[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'masuda@masuda.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (3.0ms)[0m  [1m[32mINSERT INTO `users` (`uid`, `encrypted_password`, `name`, `email`, `created_at`, `updated_at`) VALUES ('masuda@masuda.com', '$2a$12$hY1u5Vcis5CGPiNyq5H8cOklIxtVpZ4hoLMXDUEmoBcMzkgBBwfG6', 'masuda', 'masuda@masuda.com', '2023-06-02 03:00:27.000773', '2023-06-02 03:00:27.000773')[0m
+  [1m[36mTRANSACTION (15.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (1.6ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"MHlZasiXGOZP7RE-EWnZ2A\":{\"token\":\"$2a$10$eaHyIQod96Qu.gEdDMPnTOyWLiEGfxAO0AdMJIHH1L98LqDYde9VK\",\"expiry\":1686884427}}', `users`.`updated_at` = '2023-06-02 03:00:27.124003' WHERE `users`.`id` = 11[0m
+  [1m[36mTRANSACTION (15.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 11 LIMIT 1[0m
+Completed 200 OK in 548ms (Views: 0.8ms | ActiveRecord: 41.5ms | Allocations: 9293)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 12:00:27 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>11, "event"=>{"user_id"=>11}}
+  [1m[36mFollow Load (4.4ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 11 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (1.5ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 11 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.5ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 11[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+Completed 200 OK in 52ms (Views: 10.2ms | ActiveRecord: 7.4ms | Allocations: 1936)
+
+
+Started POST "/events/create" for 172.18.0.1 at 2023-06-02 12:00:54 +0900
+Processing by EventsController#create as HTML
+  Parameters: {"body"=>"理沙と打ち上げ", "date"=>"2023-06-08", "name"=>"masuda", "title"=>"打ち上げ", "user_id"=>11, "event"=>{"user_id"=>11, "date"=>"2023-06-08", "title"=>"打ち上げ", "body"=>"理沙と打ち上げ", "name"=>"masuda"}}
+[31mUnpermitted parameter: :event[0m
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 11 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mEvent Create (2.1ms)[0m  [1m[32mINSERT INTO `events` (`user_id`, `date`, `title`, `body`, `name`, `created_at`, `updated_at`) VALUES (11, '2023-06-08', '打ち上げ', '理沙と打ち上げ', 'masuda', '2023-06-02 03:00:54.674440', '2023-06-02 03:00:54.674440')[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (13.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+Completed 200 OK in 91ms (Views: 0.6ms | ActiveRecord: 20.2ms | Allocations: 3045)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 12:00:54 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>11, "event"=>{"user_id"=>11}}
+  [1m[36mFollow Load (0.8ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 11 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (1.6ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 11 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.5ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 11[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+Completed 200 OK in 43ms (Views: 14.0ms | ActiveRecord: 3.8ms | Allocations: 2053)
+
+
+Started POST "/events/create" for 172.18.0.1 at 2023-06-02 12:01:10 +0900
+Processing by EventsController#create as HTML
+  Parameters: {"body"=>"理沙とデート", "date"=>"2023-06-08", "name"=>"masuda", "title"=>"デート", "user_id"=>11, "event"=>{"user_id"=>11, "date"=>"2023-06-08", "title"=>"デート", "body"=>"理沙とデート", "name"=>"masuda"}}
+[31mUnpermitted parameter: :event[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 11 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mEvent Create (2.0ms)[0m  [1m[32mINSERT INTO `events` (`user_id`, `date`, `title`, `body`, `name`, `created_at`, `updated_at`) VALUES (11, '2023-06-08', 'デート', '理沙とデート', 'masuda', '2023-06-02 03:01:10.858380', '2023-06-02 03:01:10.858380')[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (9.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:4:in `create'
+Completed 200 OK in 70ms (Views: 0.6ms | ActiveRecord: 14.3ms | Allocations: 3039)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 12:01:10 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>11, "event"=>{"user_id"=>11}}
+  [1m[36mFollow Load (1.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 11 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (1.2ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 11 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 11[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+Completed 200 OK in 47ms (Views: 9.6ms | ActiveRecord: 4.1ms | Allocations: 2170)
+
+
+Started POST "/events/edit" for 172.18.0.1 at 2023-06-02 12:01:25 +0900
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>28, "body"=>"理沙とデート", "date"=>"2023-06-08", "name"=>"masuda", "title"=>"デート１", "user_id"=>11, "event"=>{"id"=>28, "user_id"=>11, "date"=>"2023-06-08", "title"=>"デート１", "body"=>"理沙とデート", "name"=>"masuda"}}
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`id` = 28 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:12:in `edit'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:13:in `edit'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 11 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:13:in `edit'
+  [1m[36mEvent Update (1.4ms)[0m  [1m[33mUPDATE `events` SET `events`.`title` = 'デート１', `events`.`updated_at` = '2023-06-02 03:01:25.725684' WHERE `events`.`id` = 28[0m
+  ↳ app/controllers/events_controller.rb:13:in `edit'
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:13:in `edit'
+Completed 200 OK in 64ms (Views: 1.4ms | ActiveRecord: 12.1ms | Allocations: 3624)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 12:01:25 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>11, "event"=>{"user_id"=>11}}
+  [1m[36mFollow Load (1.2ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 11 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (2.2ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 11 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 11[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+Completed 200 OK in 30ms (Views: 8.7ms | ActiveRecord: 4.4ms | Allocations: 2170)
+
+
+Started POST "/events/createFollow" for 172.18.0.1 at 2023-06-02 12:02:02 +0900
+Processing by EventsController#createFollow as HTML
+  Parameters: {"user_id"=>11, "follow_name"=>"matsudarisa", "follow_mail"=>"matsudarisa@mail.com", "is_approve"=>"false", "event"=>{"user_id"=>11}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`name` = 'matsudarisa' AND `users`.`email` = 'matsudarisa@mail.com' LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:45:in `createFollow'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:48:in `createFollow'
+  [1m[36mFollow Create (4.2ms)[0m  [1m[32mINSERT INTO `follows` (`users_id`, `follow_id`, `isApprove`, `created_at`, `updated_at`) VALUES (11, 10, 'false', '2023-06-02 03:02:02.248450', '2023-06-02 03:02:02.248450')[0m
+  ↳ app/controllers/events_controller.rb:48:in `createFollow'
+  [1m[36mTRANSACTION (12.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:48:in `createFollow'
+Completed 200 OK in 78ms (Views: 0.5ms | ActiveRecord: 21.8ms | Allocations: 5007)
+
+
+Started DELETE "/api/v1/auth/sign_out" for 172.18.0.1 at 2023-06-02 12:02:09 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`uid` = 'masuda@masuda.com' LIMIT 1[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (1.5ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = NULL, `users`.`updated_at` = '2023-06-02 03:02:09.749469' WHERE `users`.`id` = 11[0m
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 123ms (Views: 0.4ms | ActiveRecord: 16.7ms | Allocations: 4159)
+
+
+Started POST "/api/v1/auth/sign_in" for 172.18.0.1 at 2023-06-02 12:02:32 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"matsudarisa@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"matsudarisa@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'matsudarisa@mail.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[37mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1 FOR UPDATE[0m
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"Je-9J9Ipn42AtPYaxoHHtw\":{\"token\":\"$2a$10$rRL6fpe.ldJ7Eexh.XDVYuR5VWuVhrnmzntimgj2hg.ypDNKkDSHi\",\"expiry\":1686884552}}', `users`.`updated_at` = '2023-06-02 03:02:32.956285' WHERE `users`.`id` = 10[0m
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1[0m
+Completed 200 OK in 453ms (Views: 0.4ms | ActiveRecord: 14.0ms | Allocations: 7130)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 12:02:33 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>10, "event"=>{"user_id"=>10}}
+  [1m[36mFollow Load (1.2ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 10 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (2.3ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 10 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 10[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 11[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+Completed 200 OK in 42ms (Views: 16.8ms | ActiveRecord: 6.0ms | Allocations: 3085)
+
+
+Started POST "/events/updateFollow" for 172.18.0.1 at 2023-06-02 12:02:39 +0900
+Processing by EventsController#updateFollow as HTML
+  Parameters: {"user_id"=>10, "follower_id"=>11, "is_approve"=>"true", "event"=>{"user_id"=>10}}
+  [1m[36mFollow Load (1.4ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 11 AND `follows`.`follow_id` = 10 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:56:in `updateFollow'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:58:in `updateFollow'
+  [1m[36mFollow Update (1.1ms)[0m  [1m[33mUPDATE `follows` SET `follows`.`isApprove` = 'true', `follows`.`updated_at` = '2023-06-02 03:02:39.937719' WHERE `follows`.`id` = 7[0m
+  ↳ app/controllers/events_controller.rb:58:in `updateFollow'
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:58:in `updateFollow'
+Completed 200 OK in 40ms (Views: 0.8ms | ActiveRecord: 10.8ms | Allocations: 2739)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 12:02:39 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>10, "event"=>{"user_id"=>10}}
+  [1m[36mFollow Load (1.2ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 10 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (1.0ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 10 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.5ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 10[0m
+  ↳ app/controllers/events_controller.rb:38:in `index'
+Completed 200 OK in 26ms (Views: 7.1ms | ActiveRecord: 3.7ms | Allocations: 2170)
+
+
+Started POST "/events/createFollow" for 172.18.0.1 at 2023-06-02 12:02:55 +0900
+Processing by EventsController#createFollow as HTML
+  Parameters: {"user_id"=>10, "follow_name"=>"masuda", "follow_mail"=>"masuda@masuda.com", "is_approve"=>"false", "event"=>{"user_id"=>10}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`name` = 'masuda' AND `users`.`email` = 'masuda@masuda.com' LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:45:in `createFollow'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:48:in `createFollow'
+  [1m[36mFollow Create (1.5ms)[0m  [1m[32mINSERT INTO `follows` (`users_id`, `follow_id`, `isApprove`, `created_at`, `updated_at`) VALUES (10, 11, 'false', '2023-06-02 03:02:55.939934', '2023-06-02 03:02:55.939934')[0m
+  ↳ app/controllers/events_controller.rb:48:in `createFollow'
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:48:in `createFollow'
+Completed 200 OK in 44ms (Views: 1.0ms | ActiveRecord: 12.6ms | Allocations: 2432)
+
+
+Started POST "/events/createFollow" for 172.18.0.1 at 2023-06-02 12:03:07 +0900
+Processing by EventsController#createFollow as HTML
+  Parameters: {"user_id"=>10, "follow_name"=>"a", "follow_mail"=>"a", "is_approve"=>"false", "event"=>{"user_id"=>10}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`name` = 'a' AND `users`.`email` = 'a' LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:45:in `createFollow'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.4ms | Allocations: 1101)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/events_controller.rb:46:in `createFollow'
+Started DELETE "/api/v1/auth/sign_out" for 172.18.0.1 at 2023-06-02 12:03:12 +0900
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`uid` = 'matsudarisa@mail.com' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = NULL, `users`.`updated_at` = '2023-06-02 03:03:12.956092' WHERE `users`.`id` = 10[0m
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 115ms (Views: 0.4ms | ActiveRecord: 15.0ms | Allocations: 4417)
+
+
+Started POST "/api/v1/auth/sign_in" for 172.18.0.1 at 2023-06-02 12:03:26 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"masuda", "password"=>"[FILTERED]", "session"=>{"email"=>"masuda", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'masuda' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 29ms (Views: 1.0ms | ActiveRecord: 1.5ms | Allocations: 1398)
+
+
+Started POST "/api/v1/auth/sign_in" for 172.18.0.1 at 2023-06-02 12:03:35 +0900
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"masuda@masuda.com", "password"=>"[FILTERED]", "session"=>{"email"=>"masuda@masuda.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'masuda@masuda.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[37mSELECT `users`.* FROM `users` WHERE `users`.`id` = 11 LIMIT 1 FOR UPDATE[0m
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"jLSsKBtL9e1iWTD_R_aH8g\":{\"token\":\"$2a$10$lrtE0e0PwkiPIIjK7qlbu..rBuqhfMwV0kuORl.3bbGE3EVPEsjQq\",\"expiry\":1686884615}}', `users`.`updated_at` = '2023-06-02 03:03:35.875748' WHERE `users`.`id` = 11[0m
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 11 LIMIT 1[0m
+Completed 200 OK in 450ms (Views: 0.3ms | ActiveRecord: 13.7ms | Allocations: 7148)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 12:03:36 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>11, "event"=>{"user_id"=>11}}
+  [1m[36mFollow Load (1.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 11 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (1.4ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 11 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.2ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 11[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+  [1m[36mEvent Load (1.1ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 10[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+Completed 200 OK in 50ms (Views: 29.0ms | ActiveRecord: 6.1ms | Allocations: 3955)
+
+
+Started POST "/events/updateFollow" for 172.18.0.1 at 2023-06-02 12:03:42 +0900
+Processing by EventsController#updateFollow as HTML
+  Parameters: {"user_id"=>11, "follower_id"=>10, "is_approve"=>"true", "event"=>{"user_id"=>11}}
+  [1m[36mFollow Load (1.1ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 10 AND `follows`.`follow_id` = 11 LIMIT 1[0m
+  ↳ app/controllers/events_controller.rb:56:in `updateFollow'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:58:in `updateFollow'
+  [1m[36mFollow Update (0.9ms)[0m  [1m[33mUPDATE `follows` SET `follows`.`isApprove` = 'true', `follows`.`updated_at` = '2023-06-02 03:03:42.526499' WHERE `follows`.`id` = 8[0m
+  ↳ app/controllers/events_controller.rb:58:in `updateFollow'
+  [1m[36mTRANSACTION (9.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:58:in `updateFollow'
+Completed 200 OK in 43ms (Views: 0.7ms | ActiveRecord: 12.6ms | Allocations: 2585)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-02 12:03:42 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>11, "event"=>{"user_id"=>11}}
+  [1m[36mFollow Load (1.3ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 11 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (1.3ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 11 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 11[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+  [1m[36mEvent Load (1.3ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 10[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+Completed 200 OK in 36ms (Views: 16.4ms | ActiveRecord: 5.0ms | Allocations: 3071)
+
+
+Started POST "/api/v1/auth/sign_in" for 172.18.0.1 at 2023-06-05 12:07:34 +0900
+Started POST "/api/v1/auth/sign_in" for 172.18.0.1 at 2023-06-05 12:07:35 +0900
+  [1m[35m (1477.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"matsudarisa@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"matsudarisa@mail.com", "password"=>"[FILTERED]"}}
+Processing by DeviseTokenAuth::SessionsController#create as HTML
+  Parameters: {"email"=>"matsudarisa@mail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"matsudarisa@mail.com", "password"=>"[FILTERED]"}}
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mUser Load (18.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'matsudarisa@mail.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'matsudarisa@mail.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+[31mUnpermitted parameter: :session[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[37mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1 FOR UPDATE[0m
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (8.5ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"ZCLH2OQEC00ifO1IhThg6w\":{\"token\":\"$2a$10$i9Zat1tiG9Fb3mgm03JR6eZj.pTwQubQjPTBSYCdNFm1nNGXAYo96\",\"expiry\":1687144057}}', `users`.`updated_at` = '2023-06-05 03:07:37.942487' WHERE `users`.`id` = 10[0m
+  [1m[36mUser Load (51.6ms)[0m  [1m[37mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1 FOR UPDATE[0m
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1[0m
+Completed 200 OK in 891ms (Views: 0.8ms | ActiveRecord: 57.9ms | Allocations: 24109)
+
+
+  [1m[36mUser Update (17.8ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"ZCLH2OQEC00ifO1IhThg6w\":{\"token\":\"$2a$10$i9Zat1tiG9Fb3mgm03JR6eZj.pTwQubQjPTBSYCdNFm1nNGXAYo96\",\"expiry\":1687144057},\"oS-KP0-RI2f4c1ROi67rAA\":{\"token\":\"$2a$10$hYFD0/lvI/Jo4Nx8pwW9U./FtSTz9cXPC.7Yprxl3qPAFpvEtjqey\",\"expiry\":1687144058}}', `users`.`updated_at` = '2023-06-05 03:07:38.165890' WHERE `users`.`id` = 10[0m
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 LIMIT 1[0m
+Completed 200 OK in 1093ms (Views: 0.7ms | ActiveRecord: 101.0ms | Allocations: 26949)
+
+
+Started POST "/events/index" for 172.18.0.1 at 2023-06-05 12:07:38 +0900
+Processing by EventsController#index as HTML
+  Parameters: {"user_id"=>10, "event"=>{"user_id"=>10}}
+  [1m[36mFollow Load (15.5ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`follow_id` = 10 AND `follows`.`isApprove` = 'false'[0m
+  ↳ app/controllers/events_controller.rb:31:in `index'
+  [1m[36mFollow Load (2.8ms)[0m  [1m[34mSELECT `follows`.* FROM `follows` WHERE `follows`.`users_id` = 10 AND `follows`.`isApprove` = 'true'[0m
+  ↳ app/controllers/events_controller.rb:34:in `index'
+  [1m[36mEvent Load (11.7ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 10[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+  [1m[36mEvent Load (3.2ms)[0m  [1m[34mSELECT `events`.* FROM `events` WHERE `events`.`user_id` = 11[0m
+  ↳ app/controllers/events_controller.rb:40:in `index'
+Completed 200 OK in 121ms (Views: 32.6ms | ActiveRecord: 47.5ms | Allocations: 10057)
+
+

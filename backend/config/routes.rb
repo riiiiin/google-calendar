@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'events/index'
   post 'events/updateFollow'
   post 'events/createFollow'
+  post 'events/edit'
   namespace :api do
     namespace :v1 do
       resources :test, only: %i[index]

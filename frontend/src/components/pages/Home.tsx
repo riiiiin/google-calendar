@@ -60,7 +60,6 @@ const Home: React.FC = () => {
   useEffect(() => {
     const getUsers = async () => {
       const json = await getEvent(currentUser?.id != undefined ? currentUser?.id : 0);
-      console.log(json)
       const allContents = json['data']['allEvent']
       const allFollowContents = json['data']['visibleFollowsEvent']
       setFollowers(json['data']['followers'])
@@ -134,7 +133,6 @@ const Home: React.FC = () => {
     if (body != '' && event != '') {
       try {
         const res = await sendEvent(params)
-        console.log(res)
         setIsAdd(isAdd + 1)
       } catch (err) {
         console.log(err)
@@ -160,7 +158,6 @@ const Home: React.FC = () => {
     if (body != '' && event != '') {
       try {
         const res = await editEvents(params)
-        console.log(res)
         setIsAdd(isAdd + 1)
       } catch (err) {
         console.log(err)
@@ -199,7 +196,6 @@ const Home: React.FC = () => {
     }
     try {
       const res = await updateApproval(params)
-      console.log(res)
       setIsAdd(isAdd + 1)
     } catch (err) {
       console.log(err)
@@ -214,7 +210,6 @@ const Home: React.FC = () => {
     }
     try {
       const res = await updateApproval(params)
-      console.log(res)
       setIsAdd(isAdd + 1)
     } catch (err) {
       console.log(err)

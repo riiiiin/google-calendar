@@ -8,6 +8,12 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    event = Event.find_by(id: params[:id])
+    event.update(title: params[:title], body: params[:body])
+    render json: { message: "success"}
+  end
+
   def destroy
     event = Event.find_by(id: params[:id])
     if event.destroy

@@ -78,7 +78,6 @@ const Header: React.FC = () => {
     if (followName != '' && followMail != '') {
       try {
         const res = await addFollow(params)
-        console.log(res)
       } catch (err) {
         console.log(err)
       }

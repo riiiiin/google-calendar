@@ -1,6 +1,6 @@
 FROM ruby:3.0
 
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs && apt-get -y install vim
 
 ENV APP_PATH /myapp
 
@@ -17,5 +17,15 @@ COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
+
+# ARG RAILS_ENV
+# ARG RAILS_MASTER_KEY
+# ARG CLOUD_SQL_CONNECTION_NAME
+# ARG GOOGLE_PROJECT_ID
+
+# ENV RAILS_ENV=${RAILS_ENV}
+# ENV RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+# ENV CLOUD_SQL_CONNECTION_NAME=${CLOUD_SQL_CONNECTION_NAME}
+# ENV GOOGLE_PROJECT_ID=${GOOGLE_PROJECT_ID}
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
